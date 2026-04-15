@@ -1,26 +1,192 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:   #06040F;
+  --s1:   #0A0718;
+  --s2:   #0E0A20;
+  --s3:   #130D28;
+  --b1:   #3D1A8A;
+  --b2:   #5B2DB0;
+  --b3:   #7B4FD0;
+  --b4:   #A87EEA;
+  --cy:   #9B6FFF;
+  --mg:   #C9A227;
+  --yl:   #F0C040;
+  --pr:   #CC88FF;
+  --tx:   #E8E8F4;
+  --mt:   #8888A8;
+  --bdr:  #2A1A50;
+
+  --font-h: var(--font-orbitron), monospace;
+  --font-b: var(--font-rajdhani), sans-serif;
+  --font-m: var(--font-mono), monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-b);
+  background: var(--bg);
+  color: var(--tx);
+  overflow-x: hidden;
+  padding-bottom: 48px;
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%) }
+  100% { transform: translateY(100vh) }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1 }
+  50%       { opacity: 0 }
+}
+@keyframes pulse-cy {
+  0%, 100% { box-shadow: 0 0 8px #9B6FFF30 }
+  50%       { box-shadow: 0 0 24px #9B6FFF70 }
+}
+@keyframes glow-in {
+  from { opacity: 0; transform: translateY(16px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+
+.scanline {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(155,111,255,.05);
+  animation: scanline 10s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.silver {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E0E0F0 40%, #A8A8C8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.silver-lg {
+  background: linear-gradient(180deg, #FFFFFF 0%, #D8D8F0 35%, #B0B0D8 70%, #8888C0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(155,111,255,.35));
+}
+
+.cy-text {
+  background: linear-gradient(135deg, #9B6FFF 0%, #CC88FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.punk-card {
+  background: var(--s2);
+  border: 1px solid var(--bdr);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  transition: border-color .2s, background .2s;
+}
+.punk-card:hover {
+  border-color: var(--cy);
+  background: var(--s3);
+}
+
+.community-card:hover {
+  border-top-color: var(--cy) !important;
+}
+
+.tool-card:hover {
+  border-color: var(--cy) !important;
+  background: var(--s3) !important;
+}
+
+/* ── Módulos — efeito FIAP ───────────────────────────────── */
+.modulo-card {
+  transition: transform .4s ease;
+}
+.modulo-card:hover {
+  transform: scale(1.02);
+  z-index: 2;
+}
+.modulo-card:hover .modulo-foto {
+  transform: scale(1.08);
+}
+.modulo-card:hover .modulo-overlay {
+  opacity: 1 !important;
+}
+.modulo-card:hover .modulo-info {
+  opacity: 0 !important;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0) }
+  100% { transform: translateX(-33.333%) }
+}
+
+.ticker-inner {
+  animation: ticker 40s linear infinite;
+  will-change: transform;
+}
+.ticker-inner:hover {
+  animation-play-state: paused;
+}
+
+.btn-punk {
+  background: var(--b1);
+  border: 1px solid var(--cy);
+  color: var(--cy);
+  font-family: var(--font-h);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+  animation: pulse-cy 3s infinite;
+}
+.btn-punk:hover {
+  background: var(--cy);
+  color: #000;
+  animation: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--bdr);
+  color: var(--mt);
+  font-family: var(--font-m);
+  font-size: 11px;
+  letter-spacing: .08em;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-ghost:hover { border-color: var(--cy); color: var(--cy) }
+
+/* ── Projetos — hover zoom screenshot ───────────────────────────── */
+.projeto-card {
+  transition: border-color .2s, box-shadow .2s;
+}
+.projeto-card:hover {
+  border-color: var(--cy) !important;
+  box-shadow: 0 0 32px rgba(155,111,255,.12);
+}
+.projeto-card:hover .projeto-img {
+  transform: scale(1.04);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(155,111,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155,111,255,.04) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
