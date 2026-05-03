@@ -80,8 +80,8 @@ export default function LandingPage() {
           <div className="flex items-center gap-3">
             <Image src="/logo-iadonai.png" alt="Iadonai Academy" width={120} height={36} style={{ objectFit: "contain" }} />
           </div>
-          <a href="https://pay.kiwify.com.br/krRn4r2" target="_blank" rel="noopener noreferrer" className="btn-punk" style={{ padding: "8px 20px", fontSize: 10 }}>
-            Garantir vaga →
+          <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ padding: "8px 20px", fontSize: 10 }}>
+            Acessar grátis →
           </a>
         </div>
       </nav>
@@ -168,11 +168,11 @@ export default function LandingPage() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://pay.kiwify.com.br/krRn4r2" target="_blank" rel="noopener noreferrer" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px", justifyContent: "center" }}>
-              ▶ QUERO COMEÇAR AGORA
+            <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px", justifyContent: "center" }}>
+              ▶ ACESSAR CURSO GRÁTIS
             </a>
-            <a href="#modulos" className="btn-ghost" style={{ padding: "16px 32px", justifyContent: "center" }}>
-              VER CONTEÚDO COMPLETO
+            <a href="https://pay.kiwify.com.br/Nfsv86H" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding: "16px 32px", justifyContent: "center" }}>
+              JÁ TENHO CONTA — COMPRAR CURSO
             </a>
           </div>
 
@@ -297,8 +297,8 @@ export default function LandingPage() {
             <p style={{ color: "var(--mt)", fontFamily: "var(--font-b)", fontSize: 15, lineHeight: 1.8, marginBottom: 32 }}>
               Soluções plug and play que você vai desenvolver na formação — aplicáveis imediatamente no seu negócio ou nos seus clientes.
             </p>
-            <a href="https://pay.kiwify.com.br/krRn4r2" target="_blank" rel="noopener noreferrer" className="btn-punk" style={{ fontSize: 10 }}>
-              QUERO APRENDER ISSO →
+            <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ fontSize: 10 }}>
+              QUERO APRENDER ISSO — ACESSO GRÁTIS →
             </a>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, alignContent: "start" }}>
@@ -585,8 +585,8 @@ export default function LandingPage() {
                 Acesso completo à plataforma — cursos, fórum, ranking e comunidade
               </p>
             </div>
-            <a href="https://pay.kiwify.com.br/krRn4r2" target="_blank" rel="noopener noreferrer" className="btn-punk" style={{ fontSize: 10, position: "relative", flexShrink: 0 }}>
-              ENTRAR NA COMUNIDADE →
+            <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ fontSize: 10, position: "relative", flexShrink: 0 }}>
+              ENTRAR NA COMUNIDADE — GRÁTIS →
             </a>
           </div>
         </div>
@@ -697,7 +697,7 @@ export default function LandingPage() {
             </div>
 
             <a
-              href="https://pay.kiwify.com.br/krRn4r2"
+              href="https://pay.kiwify.com.br/Nfsv86H"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-punk"
@@ -709,6 +709,19 @@ export default function LandingPage() {
             <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".06em", textAlign: "center", marginTop: 14 }}>
               🔒 Pagamento 100% seguro via Kiwify
             </p>
+
+            <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid var(--bdr)", textAlign: "center" }}>
+              <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".06em", marginBottom: 10 }}>
+                Ainda não tem certeza? Experimente grátis primeiro
+              </p>
+              <a
+                href="https://plataforma.iadonai.com.br/cadastro"
+                className="btn-ghost"
+                style={{ fontSize: 11, padding: "10px 24px", display: "inline-block" }}
+              >
+                ACESSAR CURSO GRATUITO →
+              </a>
+            </div>
           </div>
         </div>
       </section>
