@@ -119,7 +119,7 @@ export default function LandingPage() {
               overflow: "hidden",
             }}>
               <Image
-                src="/projetos/case-01.png"
+                src="/projetos/case-01.PNG"
                 alt="Agente de IA via link — fluxo N8N"
                 width={1200}
                 height={675}
@@ -161,7 +161,7 @@ export default function LandingPage() {
               overflow: "hidden",
             }}>
               <Image
-                src="/projetos/case-02.png"
+                src="/projetos/case-02.PNG"
                 alt="Agente de IA no WhatsApp — fluxo N8N com Z-API"
                 width={1200}
                 height={675}
