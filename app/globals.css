@@ -190,3 +190,15 @@ body {
     linear-gradient(90deg, rgba(155,111,255,.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+input::placeholder,
+textarea::placeholder {
+  color: #6666AA;
+  opacity: 1;
+}
+
+input,
+textarea,
+select {
+  color-scheme: dark;
+}

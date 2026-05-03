@@ -15,13 +15,13 @@ const N8N_WEBHOOK = "https://n8n.iadonaiacademy.com.br/webhook/cadastro-isca";
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
-  background: "#13102A",
-  border: "1px solid rgba(155,111,255,.25)",
-  borderBottom: "2px solid rgba(155,111,255,.5)",
+  background: "#1C1640",
+  border: "1px solid rgba(155,111,255,.3)",
+  borderBottom: "2px solid rgba(155,111,255,.6)",
   padding: "13px 16px",
   fontFamily: "var(--font-b)",
   fontSize: 15,
-  color: "#ffffff",
+  color: "#E8E8F4",
   outline: "none",
   boxSizing: "border-box",
 };
@@ -37,8 +37,8 @@ const labelStyle: React.CSSProperties = {
 };
 
 const optionStyle: React.CSSProperties = {
-  background: "#13102A",
-  color: "#ffffff",
+  background: "#1C1640",
+  color: "#E8E8F4",
 };
 
 export default function CadastroForm() {
