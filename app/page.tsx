@@ -477,9 +477,9 @@ export default function LandingPage() {
             <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 40px)", letterSpacing: ".06em", marginBottom: 12 }}>
               CRIE SUA CONTA AGORA
             </h2>
-            <p style={{ fontFamily: "var(--font-b)", fontSize: 16, color: "var(--mt)", lineHeight: 1.7 }}>
+            <p style={{ fontFamily: "var(--font-b)", fontSize: "clamp(16px, 2vw, 22px)", color: "var(--mt)", lineHeight: 1.7 }}>
               Preencha abaixo e receba seu login por email na hora.
-              Sem cartão. Sem surpresas.
+              <br /><strong style={{ color: "#E8E8F4" }}>Sem cartão. Sem surpresas.</strong>
             </p>
           </div>
 
