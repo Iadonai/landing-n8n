@@ -437,7 +437,7 @@ export default function LandingPage() {
                 Engenheiro de Dados · CEO da Iadonai Academy
               </p>
               <p style={{ fontFamily: "var(--font-b)", fontSize: 15, color: "var(--mt)", lineHeight: 1.8, marginBottom: 20 }}>
-                Engenheiro de Dados formado pelo <strong style={{ color: "var(--tx)" }}>Mackenzie</strong>, especialista em automação e dados com mais de <strong style={{ color: "var(--tx)" }}>6 anos de experiência</strong> em projetos reais em empresas como <strong style={{ color: "var(--tx)" }}>Bradesco e Allcare Gestora de Saúde</strong>. Fundador da <strong style={{ color: "var(--tx)" }}>Data Analytcs Treinamentos</strong>.
+                Engenheiro de Dados formado pelo <strong style={{ color: "var(--tx)" }}>Mackenzie</strong>, especialista em automação e dados com mais de <strong style={{ color: "var(--tx)" }}>6 anos de experiência</strong> em projetos reais em empresas como <strong style={{ color: "var(--tx)" }}>Bradesco e Allcare Gestora de Saúde</strong>. Fundador da <strong style={{ color: "var(--tx)" }}>IADONAI Academy</strong>.
               </p>
               <p style={{ fontFamily: "var(--font-b)", fontSize: 15, color: "var(--mt)", lineHeight: 1.8, marginBottom: 32 }}>
                 No Bradesco, liderou o <strong style={{ color: "var(--tx)" }}>sistema antifraude do PIX</strong> e um projeto que economizou <strong style={{ color: "var(--cy)" }}>R$ 4 milhões anuais</strong>. Na Udemy, já formou mais de <strong style={{ color: "var(--cy)" }}>3.112 alunos</strong> com <strong style={{ color: "var(--tx)" }}>561 avaliações</strong> — tudo com foco prático e linguagem acessível.
