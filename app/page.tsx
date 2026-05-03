@@ -1,7 +1,6 @@
 import Image from "next/image";
 import TickerTools from "./components/TickerTools";
-import ProjetosGrid from "./components/ProjetosGrid";
-import ModulosGrid from "./components/ModulosGrid";
+import CadastroForm from "./components/CadastroForm";
 
 export default function LandingPage() {
   return (
@@ -24,7 +23,7 @@ export default function LandingPage() {
           className="flex items-center justify-between"
         >
           <Image src="/logo-iadonai.png" alt="Iadonai Academy" width={120} height={36} style={{ objectFit: "contain" }} />
-          <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ padding: "8px 20px", fontSize: 10 }}>
+          <a href="#cadastro" className="btn-punk" style={{ padding: "8px 20px", fontSize: 10 }}>
             Criar conta grátis →
           </a>
         </div>
@@ -42,9 +41,8 @@ export default function LandingPage() {
           background: "radial-gradient(ellipse, rgba(91,45,176,.25) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
-        <div style={{ position: "absolute", top: 56, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, var(--cy), transparent)", opacity: .3 }} />
 
-        <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", textAlign: "center" }}>
 
           {/* Badge */}
           <div className="flex justify-center mb-6">
@@ -62,108 +60,221 @@ export default function LandingPage() {
                 boxShadow: "0 0 8px var(--cy)",
                 animation: "pulse-cy 2s infinite",
               }} />
-              GRATUITO · ACESSO IMEDIATO · SEM CARTÃO DE CRÉDITO
+              100% GRATUITO · SEM CARTÃO · ACESSO IMEDIATO
             </div>
           </div>
 
           {/* Headline */}
           <h1
-            className="silver-lg text-center"
-            style={{ fontFamily: "var(--font-h)", fontSize: "clamp(32px, 5.5vw, 68px)", lineHeight: 1.05, letterSpacing: ".04em", marginBottom: 8 }}
+            className="silver-lg"
+            style={{ fontFamily: "var(--font-h)", fontSize: "clamp(30px, 5vw, 64px)", lineHeight: 1.05, letterSpacing: ".04em", marginBottom: 8 }}
           >
             CRIE SEU PRIMEIRO<br />
             <span className="cy-text">AGENTE DE IA COM N8N</span>
           </h1>
-          <p style={{
-            fontFamily: "var(--font-h)", fontSize: "clamp(14px, 2vw, 22px)",
-            color: "var(--pr)", letterSpacing: ".08em", textAlign: "center", marginBottom: 24,
-          }}>
-            Grátis. Do zero. Resultado em minutos.
-          </p>
 
           <p style={{
-            textAlign: "center", color: "var(--mt)", fontSize: 17,
-            maxWidth: 640, margin: "0 auto 40px", lineHeight: 1.7,
-            fontFamily: "var(--font-b)",
+            fontFamily: "var(--font-b)", fontSize: "clamp(15px, 1.8vw, 19px)",
+            color: "var(--mt)", maxWidth: 620, margin: "20px auto 36px", lineHeight: 1.8,
           }}>
-            Acesse o curso introdutório gratuito e aprenda na prática a criar automações
-            com WhatsApp, IA generativa e as ferramentas mais usadas no mercado —{" "}
-            <strong style={{ color: "var(--tx)" }}>mesmo sem experiência em programação.</strong>
+            Aprenda N8N do zero e construa <strong style={{ color: "var(--tx)" }}>2 projetos reais</strong> —
+            um agente de IA via link e outro integrado ao WhatsApp.
+            Sem programação. Resultado em minutos.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px", justifyContent: "center" }}>
-              ▶ CRIAR MINHA CONTA GRÁTIS
-            </a>
-            <a href="#como-funciona" className="btn-ghost" style={{ padding: "16px 32px", justifyContent: "center" }}>
-              COMO FUNCIONA ↓
-            </a>
-          </div>
+          <a href="#cadastro" className="btn-punk" style={{ fontSize: 13, padding: "18px 48px" }}>
+            ▶ QUERO ACESSO GRATUITO
+          </a>
 
-          {/* O que está incluso no grátis */}
-          <div style={{
-            marginTop: 48,
-            background: "rgba(61,26,138,.15)",
-            border: "1px solid rgba(155,111,255,.3)",
-            padding: "28px 36px",
-            maxWidth: 680,
-            margin: "48px auto 0",
-          }}>
-            <div style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".16em", textTransform: "uppercase", marginBottom: 18, textAlign: "center" }}>
-              ◈ O que você acessa gratuitamente ao criar sua conta
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              {[
-                "Introdução ao n8n — do zero ao primeiro workflow",
-                "Crie um agente de chat com IA generativa",
-                "Integre WhatsApp com Z-API na prática",
-                "Acesso à comunidade, fórum e ranking de alunos",
-              ].map((item) => (
-                <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                  <span style={{ color: "var(--cy)", fontSize: 14, marginTop: 1, flexShrink: 0 }}>✦</span>
-                  <span style={{ fontFamily: "var(--font-b)", fontSize: 13, color: "var(--tx)", lineHeight: 1.5 }}>{item}</span>
-                </div>
-              ))}
-            </div>
-            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".06em", marginTop: 18, textAlign: "center" }}>
-              Sem cartão. Sem compromisso. Acesso imediato ao criar sua conta.
+          <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".08em", marginTop: 16 }}>
+            N8N + Z-API WhatsApp + Google Sheets · Gratuito para sempre
+          </p>
+        </div>
+      </section>
+
+      <TickerTools />
+
+      {/* ── O QUE VOCÊ VAI CONSTRUIR ─────────────────────────────────────── */}
+      <section id="projetos" style={{ padding: "80px 24px", background: "var(--bg)" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 52 }}>
+            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
+              Projetos do curso
+            </p>
+            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 42px)", letterSpacing: ".06em", marginBottom: 14 }}>
+              O QUE VOCÊ VAI CONSTRUIR
+            </h2>
+            <p style={{ fontFamily: "var(--font-b)", fontSize: 16, color: "var(--mt)", maxWidth: 560, margin: "0 auto" }}>
+              Dois agentes de IA prontos para produção. Do zero, passo a passo, com as ferramentas que o mercado usa.
             </p>
           </div>
 
-          {/* Stats */}
-          <div
-            style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginTop: 40 }}
-            className="max-w-2xl mx-auto"
-          >
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+
+            {/* Case 1 */}
+            <div style={{
+              background: "var(--s2)",
+              border: "1px solid var(--bdr)",
+              borderTop: "3px solid var(--cy)",
+              overflow: "hidden",
+            }}>
+              <Image
+                src="/projetos/case-01.png"
+                alt="Agente de IA via link — fluxo N8N"
+                width={1200}
+                height={675}
+                style={{ display: "block", width: "100%", height: "auto" }}
+                unoptimized
+              />
+              <div style={{ padding: "28px 28px 32px" }}>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(155,111,255,.12)", border: "1px solid rgba(155,111,255,.3)",
+                  color: "var(--cy)", fontFamily: "var(--font-m)", fontSize: 10,
+                  padding: "4px 12px", letterSpacing: ".1em", marginBottom: 16,
+                }}>
+                  🔗 CASE 01 — WEB
+                </div>
+                <h3 style={{ fontFamily: "var(--font-h)", fontSize: 20, letterSpacing: ".05em", marginBottom: 16 }} className="silver-lg">
+                  AGENTE DE IA VIA LINK
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {[
+                    "Agente integrado e acessível via link público",
+                    "Responde perguntas dos usuários em tempo real",
+                    "Registra todas as perguntas no Google Sheets",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                      <span style={{ color: "var(--cy)", fontSize: 14, marginTop: 2, flexShrink: 0 }}>✦</span>
+                      <span style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.6 }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Case 2 */}
+            <div style={{
+              background: "var(--s2)",
+              border: "1px solid var(--bdr)",
+              borderTop: "3px solid #3ECF8E",
+              overflow: "hidden",
+            }}>
+              <Image
+                src="/projetos/case-02.png"
+                alt="Agente de IA no WhatsApp — fluxo N8N com Z-API"
+                width={1200}
+                height={675}
+                style={{ display: "block", width: "100%", height: "auto" }}
+                unoptimized
+              />
+              <div style={{ padding: "28px 28px 32px" }}>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(62,207,142,.1)", border: "1px solid rgba(62,207,142,.3)",
+                  color: "#3ECF8E", fontFamily: "var(--font-m)", fontSize: 10,
+                  padding: "4px 12px", letterSpacing: ".1em", marginBottom: 16,
+                }}>
+                  💬 CASE 02 — WHATSAPP
+                </div>
+                <h3 style={{ fontFamily: "var(--font-h)", fontSize: 20, letterSpacing: ".05em", marginBottom: 16 }} className="silver-lg">
+                  AGENTE DE IA NO WHATSAPP
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {[
+                    "Bot integrado ao WhatsApp via Z-API",
+                    "Captura e registra leads automaticamente no Sheets",
+                    "Resposta automática inteligente 24 horas por dia",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                      <span style={{ color: "#3ECF8E", fontSize: 14, marginTop: 2, flexShrink: 0 }}>✦</span>
+                      <span style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.6 }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <a href="#cadastro" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px" }}>
+              ▶ QUERO CONSTRUIR ESSES PROJETOS — CRIAR CONTA GRÁTIS
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── O QUE VOCÊ VAI APRENDER ──────────────────────────────────────── */}
+      <section style={{ padding: "80px 24px", background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 52 }}>
+            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
+              Conteúdo do curso
+            </p>
+            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
+              O QUE VOCÊ VAI APRENDER
+            </h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
             {[
-              { v: "Grátis", l: "Para começar" },
-              { v: "17+", l: "Ferramentas" },
-              { v: "100%", l: "Prático" },
-              { v: "Zero", l: "Pré-requisitos" },
-            ].map((s) => (
-              <div key={s.l} className="punk-card text-center" style={{ padding: "18px 8px" }}>
-                <div style={{ fontFamily: "var(--font-h)", fontSize: 24, color: "var(--cy)" }}>{s.v}</div>
-                <div style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".08em", marginTop: 4 }}>{s.l}</div>
+              {
+                icon: "⚡",
+                titulo: "80/20 Fundamentos N8N",
+                desc: "O que você realmente precisa saber para criar automações com N8N. Sem enrolação — direto ao que funciona.",
+                cor: "var(--cy)",
+              },
+              {
+                icon: "📊",
+                titulo: "Integrações com Google Sheets",
+                desc: "Conecte qualquer fluxo ao Google Sheets. Registre dados, leia planilhas e use como banco de dados das suas automações.",
+                cor: "var(--cy)",
+              },
+              {
+                icon: "🤖",
+                titulo: "Agentes de IA",
+                desc: "Crie agentes inteligentes com memória, RAG e ferramentas. Use modelos como Groq (gratuito), GPT, Llama e Gemini.",
+                cor: "#3ECF8E",
+              },
+              {
+                icon: "💬",
+                titulo: "Webhooks e WhatsApp (Z-API)",
+                desc: "Integre o WhatsApp nas suas automações via Z-API. Receba e envie mensagens, capture leads e automatize respostas 24/7.",
+                cor: "#3ECF8E",
+              },
+            ].map((m) => (
+              <div key={m.titulo} className="punk-card" style={{ padding: "28px 24px", display: "flex", gap: 20, alignItems: "flex-start" }}>
+                <div style={{
+                  width: 48, height: 48, flexShrink: 0,
+                  background: `${m.cor}14`, border: `1px solid ${m.cor}40`,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 22,
+                }}>
+                  {m.icon}
+                </div>
+                <div>
+                  <h3 style={{ fontFamily: "var(--font-h)", fontSize: 14, letterSpacing: ".06em", color: "#fff", marginBottom: 8 }}>
+                    {m.titulo.toUpperCase()}
+                  </h3>
+                  <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.7 }}>
+                    {m.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <TickerTools />
-
-      {/* ── PROJETOS — o que você vai aprender a criar ───────────────────── */}
-      <ProjetosGrid />
-
       {/* ── COMO FUNCIONA ────────────────────────────────────────────────── */}
-      <section id="como-funciona" style={{ padding: "80px 24px", background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)" }}>
+      <section id="como-funciona" style={{ padding: "80px 24px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 52 }}>
             <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
               Simples assim
             </p>
-            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 42px)", letterSpacing: ".06em" }}>
+            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
               COMO FUNCIONA
             </h2>
           </div>
@@ -172,20 +283,20 @@ export default function LandingPage() {
             {[
               {
                 num: "01",
-                titulo: "Cria sua conta grátis",
-                desc: "30 segundos. Só nome e email. Sem cartão de crédito, sem período de teste — o acesso é gratuito para sempre.",
+                titulo: "Preencha o formulário",
+                desc: "Nome, email e mais 2 perguntas rápidas. Menos de 1 minuto. Nada de cartão de crédito.",
                 cor: "#9B6FFF",
               },
               {
                 num: "02",
-                titulo: "Assiste o curso introdutório",
-                desc: "Aulas curtas e objetivas. Você aprende n8n, agentes de IA e WhatsApp na prática — no seu ritmo, quando quiser.",
+                titulo: "Receba seu acesso por email",
+                desc: "Seu login e senha chegam na hora. Clique no link, entre na plataforma e já acessa o curso.",
                 cor: "#CC88FF",
               },
               {
                 num: "03",
-                titulo: "Cria sua primeira automação",
-                desc: "Ao final do curso grátis você já tem um agente de IA funcionando e integrado ao WhatsApp. Resultado real, não teoria.",
+                titulo: "Construa seus agentes",
+                desc: "Siga as aulas e termine com 2 agentes de IA funcionando. Um via link, outro no WhatsApp.",
                 cor: "#3ECF8E",
               },
             ].map((step, i) => (
@@ -220,17 +331,11 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px" }}>
-              ▶ COMEÇAR AGORA — É GRÁTIS
-            </a>
-          </div>
         </div>
       </section>
 
       {/* ── PARA QUEM É ──────────────────────────────────────────────────── */}
-      <section style={{ padding: "80px 24px" }}>
+      <section style={{ padding: "80px 24px", background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
@@ -244,41 +349,15 @@ export default function LandingPage() {
             {[
               { icon: "🌱", label: "Você quer aprender automações e IA mas não sabe por onde começar" },
               { icon: "💼", label: "Você é profissional ou empreendedor e quer automatizar processos do seu negócio" },
-              { icon: "🤖", label: "Você quer criar chatbots e agentes de IA para vender como serviço" },
-              { icon: "🏢", label: "Você tem uma agência ou atende clientes e quer entregar mais com menos esforço" },
+              { icon: "🤖", label: "Você quer criar chatbots e agentes de IA para usar ou vender como serviço" },
               { icon: "🔌", label: "Você já ouviu falar de n8n mas nunca conseguiu dar o primeiro passo" },
+              { icon: "📱", label: "Você quer um bot de WhatsApp inteligente sem pagar caro por isso" },
             ].map((p) => (
               <div key={p.label} className="punk-card" style={{ display: "flex", alignItems: "center", gap: 16, padding: "18px 22px" }}>
                 <span style={{ fontSize: 24, flexShrink: 0 }}>{p.icon}</span>
                 <span style={{ fontFamily: "var(--font-b)", fontSize: 16, color: "var(--tx)" }}>{p.label}</span>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── DEPOIMENTOS ──────────────────────────────────────────────────── */}
-      <section style={{ background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)", padding: "80px 24px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
-              Resultados reais
-            </p>
-            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
-              O QUE NOSSOS ALUNOS ESTÃO FALANDO
-            </h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
-            {["depoimento-01", "depoimento-02", "depoimento-03"].map((dep) => (
-              <div key={dep} style={{ background: "#fff", border: "1px solid var(--bdr)", borderTop: "2px solid var(--cy)", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,.3)" }}>
-                <Image src={`/projetos/${dep}.PNG`} alt="Depoimento de aluno" width={600} height={200} style={{ display: "block", width: "100%", height: "auto" }} unoptimized />
-              </div>
-            ))}
-          </div>
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ fontSize: 11 }}>
-              QUERO ESSES RESULTADOS — CRIAR CONTA GRÁTIS →
-            </a>
           </div>
         </div>
       </section>
@@ -347,121 +426,71 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── COMUNIDADE ───────────────────────────────────────────────────── */}
-      <section style={{ padding: "80px 24px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 800, height: 400, background: "radial-gradient(ellipse, rgba(61,26,138,.2) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
-          <div style={{ textAlign: "center", marginBottom: 52 }}>
+      {/* ── DEPOIMENTOS ──────────────────────────────────────────────────── */}
+      <section style={{ background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)", padding: "80px 24px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
             <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
-              Mais do que um curso
+              Resultados reais
             </p>
-            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(24px, 3.5vw, 42px)", letterSpacing: ".06em", marginBottom: 16 }}>
-              UMA COMUNIDADE QUE<br />
-              <span className="cy-text">GERA RESULTADOS</span>
+            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
+              O QUE NOSSOS ALUNOS ESTÃO FALANDO
             </h2>
-            <p style={{ color: "var(--mt)", fontFamily: "var(--font-b)", fontSize: 16, maxWidth: 580, margin: "0 auto" }}>
-              Ao criar sua conta grátis, você já entra na <strong style={{ color: "var(--tx)" }}>IADONAI Academy</strong> — plataforma completa com gamificação, fórum, rankings e alunos ativos do Brasil inteiro.
-            </p>
           </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14 }}>
-            {[
-              { icon: "🏆", titulo: "Gamificação Real", desc: "Ganhe XP e suba de nível assistindo aulas, completando módulos e fazendo login diário. Veja seu progresso em tempo real." },
-              { icon: "📊", titulo: "Ranking de Alunos", desc: "Compete com outros alunos no ranking geral. Quanto mais você aprende, mais XP acumula." },
-              { icon: "💬", titulo: "Fórum por Aula", desc: "Cada aula tem seu próprio fórum. Tire dúvidas, compartilhe descobertas e colabore diretamente no conteúdo." },
-              { icon: "🎖️", titulo: "Badges & Conquistas", desc: "Desbloqueie conquistas exclusivas por marcos como concluir módulos e manter sequências de estudo." },
-              { icon: "📈", titulo: "Radar de Habilidades", desc: "Visualize seu crescimento em automação, IA e APIs através do radar de habilidades no seu perfil." },
-              { icon: "🎓", titulo: "Certificado Digital", desc: "Ao concluir o curso completo, receba seu certificado digital para compartilhar no LinkedIn e portfólio." },
-            ].map((card) => (
-              <div key={card.titulo} className="punk-card community-card" style={{ padding: "24px", borderTop: "2px solid var(--b2)" }}>
-                <div style={{ fontSize: 30, marginBottom: 12 }}>{card.icon}</div>
-                <h3 className="silver" style={{ fontFamily: "var(--font-h)", fontSize: 13, letterSpacing: ".06em", marginBottom: 8 }}>{card.titulo}</h3>
-                <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.7 }}>{card.desc}</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+            {["depoimento-01", "depoimento-02", "depoimento-03"].map((dep) => (
+              <div key={dep} style={{ background: "#fff", border: "1px solid var(--bdr)", borderTop: "2px solid var(--cy)", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,.3)" }}>
+                <Image src={`/projetos/${dep}.PNG`} alt="Depoimento de aluno" width={600} height={200} style={{ display: "block", width: "100%", height: "auto" }} unoptimized />
               </div>
             ))}
           </div>
-
-          <div style={{ marginTop: 28, background: "var(--s2)", border: "1px solid var(--b1)", borderTop: "2px solid var(--cy)", padding: "28px 32px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20, clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(155,111,255,.02) 20px, rgba(155,111,255,.02) 21px)", pointerEvents: "none" }} />
-            <div style={{ position: "relative" }}>
-              <div style={{ fontFamily: "var(--font-h)", fontSize: 10, color: "var(--cy)", letterSpacing: ".16em", textTransform: "uppercase", marginBottom: 6 }}>◈ Acesso incluso no cadastro grátis</div>
-              <Image src="/logo-iadonai.png" alt="Iadonai Academy" width={200} height={56} style={{ objectFit: "contain", marginBottom: 4 }} />
-              <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", marginTop: 4 }}>Plataforma completa — cursos, fórum, ranking e comunidade</p>
-            </div>
-            <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ fontSize: 10, position: "relative", flexShrink: 0 }}>
-              ENTRAR NA COMUNIDADE — GRÁTIS →
-            </a>
-          </div>
         </div>
       </section>
 
-      {/* ── QUER IR ALÉM? — CURSO COMPLETO ───────────────────────────────── */}
-      <section style={{ background: "var(--s1)", borderTop: "1px solid var(--bdr)", padding: "80px 24px 40px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center", marginBottom: 52 }}>
-          <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
-            Próximo nível
-          </p>
-          <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(24px, 3.5vw, 48px)", letterSpacing: ".06em", marginBottom: 16 }}>
-            QUER IR ALÉM DO GRÁTIS?
-          </h2>
-          <p style={{ color: "var(--mt)", fontFamily: "var(--font-b)", fontSize: 16, maxWidth: 620, margin: "0 auto" }}>
-            O curso completo tem 7 módulos, 17+ ferramentas e projetos avançados — RAG, agentes multimodais, infraestrutura própria e muito mais. Quando você terminar o grátis e quiser continuar, ele está aqui esperando.
-          </p>
-        </div>
-      </section>
-
-      <ModulosGrid />
-
-      {/* ── PRICING ──────────────────────────────────────────────────────── */}
-      <section id="comprar" className="grid-bg" style={{ borderTop: "1px solid var(--bdr)", padding: "60px 24px 80px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 700, height: 400, background: "radial-gradient(ellipse, rgba(61,26,138,.3) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ maxWidth: 540, margin: "0 auto", position: "relative" }}>
-          <div style={{ background: "var(--s2)", border: "1px solid var(--b2)", borderTop: "2px solid var(--cy)", clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%)", padding: "40px 36px" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(155,111,255,.12)", border: "1px solid rgba(155,111,255,.3)", color: "var(--cy)", fontFamily: "var(--font-m)", fontSize: 10, padding: "4px 12px", letterSpacing: ".1em", marginBottom: 20 }}>
-              ◈ CURSO COMPLETO — 7 MÓDULOS
+      {/* ── FORMULÁRIO DE CADASTRO ───────────────────────────────────────── */}
+      <section id="cadastro" className="grid-bg" style={{ padding: "80px 24px", position: "relative", overflow: "hidden" }}>
+        <div style={{
+          position: "absolute", top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: 700, height: 500,
+          background: "radial-gradient(ellipse, rgba(91,45,176,.2) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+        <div style={{ maxWidth: 680, margin: "0 auto", position: "relative" }}>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              border: "1px solid rgba(155,111,255,.4)",
+              background: "rgba(61,26,138,.2)",
+              padding: "6px 16px",
+              fontFamily: "var(--font-m)", fontSize: 11, color: "var(--cy)",
+              letterSpacing: ".1em", marginBottom: 20,
+            }}>
+              <span style={{
+                display: "inline-block", width: 7, height: 7,
+                borderRadius: "50%", background: "var(--cy)",
+                boxShadow: "0 0 8px var(--cy)",
+                animation: "pulse-cy 2s infinite",
+              }} />
+              GRATUITO — ACESSO IMEDIATO
             </div>
-
-            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: 28, letterSpacing: ".06em", marginBottom: 8 }}>
-              ACESSO COMPLETO
+            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 40px)", letterSpacing: ".06em", marginBottom: 12 }}>
+              CRIE SUA CONTA AGORA
             </h2>
-            <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", marginBottom: 24, lineHeight: 1.7 }}>
-              Todos os módulos, projetos avançados, atualizações vitalícias e comunidade exclusiva.
+            <p style={{ fontFamily: "var(--font-b)", fontSize: 16, color: "var(--mt)", lineHeight: 1.7 }}>
+              Preencha abaixo e receba seu login por email na hora.
+              Sem cartão. Sem surpresas.
             </p>
+          </div>
 
-            <div style={{ marginBottom: 24 }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 8, justifyContent: "center" }}>
-                <span style={{ fontFamily: "var(--font-m)", fontSize: 13, color: "var(--mt)", textDecoration: "line-through" }}>R$ 197,00</span>
-                <span style={{ fontFamily: "var(--font-h)", fontSize: 42, color: "var(--cy)", letterSpacing: ".02em" }}>R$ 97,90</span>
-              </div>
-              <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--yl)", letterSpacing: ".1em", textAlign: "center", marginTop: 4 }}>
-                ⚡ PREÇO DE LANÇAMENTO
-              </p>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 32 }}>
-              {["7 módulos com projetos reais", "17+ ferramentas e tecnologias", "Suporte e comunidade exclusiva", "Atualizações vitalícias inclusas", "Certificado de conclusão"].map((item) => (
-                <div key={item} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <span style={{ width: 20, height: 20, background: "var(--b1)", border: "1px solid var(--cy)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--cy)", fontSize: 10, flexShrink: 0 }}>✓</span>
-                  <span style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--tx)" }}>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <a href="https://pay.kiwify.com.br/Nfsv86H" target="_blank" rel="noopener noreferrer" className="btn-punk" style={{ width: "100%", justifyContent: "center", fontSize: 13, padding: "18px 32px", clipPath: "none" }}>
-              ▶ QUERO O CURSO COMPLETO
-            </a>
-            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".06em", textAlign: "center", marginTop: 14 }}>
-              🔒 Pagamento 100% seguro via Kiwify
-            </p>
-
-            <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid var(--bdr)", textAlign: "center" }}>
-              <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".06em", marginBottom: 10 }}>
-                Ainda não terminou o grátis? Comece por aí primeiro.
-              </p>
-              <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-ghost" style={{ fontSize: 11, padding: "10px 24px", display: "inline-block" }}>
-                ACESSAR CURSO GRATUITO →
-              </a>
-            </div>
+          <div style={{
+            background: "var(--s2)",
+            border: "1px solid var(--b2)",
+            borderTop: "2px solid var(--cy)",
+            padding: "36px 36px",
+            clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%)",
+          }}>
+            <CadastroForm />
           </div>
         </div>
       </section>
@@ -479,18 +508,24 @@ export default function LandingPage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
-              { p: "O curso é realmente gratuito?", r: "Sim. O curso introdutório — com n8n, agente de chat com IA e integração WhatsApp via Z-API — é 100% gratuito. Sem cartão, sem período de teste. Você cria sua conta e acessa na hora." },
-              { p: "Qual a diferença entre o grátis e o curso completo?", r: "O grátis cobre os fundamentos e dois projetos práticos. O curso completo tem 7 módulos, 17+ ferramentas e projetos avançados como RAG com Supabase, agentes multimodais, infraestrutura VPS e automação de vídeo com IA." },
-              { p: "Preciso saber programar?", r: "Não. O curso foi desenhado para quem nunca programou. Você aprende tudo do zero, no seu ritmo." },
-              { p: "O que eu ganho ao criar minha conta?", r: "Acesso ao curso gratuito, entrada na comunidade da IADONAI Academy, fórum por aula, ranking de alunos e gamificação com XP e badges." },
-              { p: "O curso funciona em qual sistema operacional?", r: "Windows, Mac e Linux. As ferramentas utilizadas são multiplataforma." },
-              { p: "Recebo certificado?", r: "Sim. Ao concluir todos os módulos do curso completo você recebe o certificado digital da IADONAI Academy para compartilhar no LinkedIn." },
+              { p: "O curso é realmente gratuito?", r: "Sim. O curso introdutório com n8n, agente de IA e integração WhatsApp via Z-API é 100% gratuito. Sem cartão, sem período de teste." },
+              { p: "Como funciona o acesso?", r: "Você preenche o formulário acima e recebe um email com seu login e senha em minutos. Acessa a plataforma e já começa o curso." },
+              { p: "Preciso saber programar?", r: "Não. O curso foi desenhado para quem nunca programou. Do zero, no seu ritmo, com exemplos práticos." },
+              { p: "O que eu preciso ter instalado?", r: "Só um computador com acesso à internet. N8N tem versão cloud gratuita — sem necessidade de instalar nada." },
+              { p: "O curso funciona em qual sistema operacional?", r: "Windows, Mac e Linux. As ferramentas utilizadas são todas online e multiplataforma." },
+              { p: "Vou realmente conseguir criar os 2 agentes?", r: "Sim. O curso é construído passo a passo. Se você seguir as aulas, ao final terá um agente via link e um no WhatsApp funcionando." },
             ].map((faq) => (
               <div key={faq.p} className="punk-card" style={{ padding: "20px 22px", borderLeft: "2px solid var(--b1)" }}>
                 <h3 style={{ fontFamily: "var(--font-h)", fontSize: 13, letterSpacing: ".06em", marginBottom: 8 }} className="silver">{faq.p}</h3>
                 <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.7 }}>{faq.r}</p>
               </div>
             ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: 48 }}>
+            <a href="#cadastro" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px" }}>
+              ▶ CRIAR MINHA CONTA GRÁTIS
+            </a>
           </div>
         </div>
       </section>
