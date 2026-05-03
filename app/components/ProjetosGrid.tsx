@@ -244,7 +244,7 @@ export default function ProjetosGrid() {
             }}>
               + dezenas de automações menores ao longo dos módulos
             </p>
-            <a href="#comprar" className="btn-punk" style={{ fontSize: 11 }}>
+            <a href="https://plataforma.iadonai.com.br/cadastro" className="btn-punk" style={{ fontSize: 11 }}>
               QUERO CONSTRUIR ESSES PROJETOS →
             </a>
           </div>
