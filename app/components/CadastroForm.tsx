@@ -8,19 +8,20 @@ type FormData = {
   whatsapp: string;
   profissao: string;
   nivel: string;
+  objetivo: string;
 };
 
 const N8N_WEBHOOK = "https://n8n.iadonaiacademy.com.br/webhook/cadastro-isca";
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
-  background: "rgba(255,255,255,.04)",
+  background: "#13102A",
   border: "1px solid rgba(155,111,255,.25)",
   borderBottom: "2px solid rgba(155,111,255,.5)",
   padding: "13px 16px",
   fontFamily: "var(--font-b)",
   fontSize: 15,
-  color: "var(--tx)",
+  color: "#ffffff",
   outline: "none",
   boxSizing: "border-box",
 };
@@ -35,6 +36,11 @@ const labelStyle: React.CSSProperties = {
   marginBottom: 6,
 };
 
+const optionStyle: React.CSSProperties = {
+  background: "#13102A",
+  color: "#ffffff",
+};
+
 export default function CadastroForm() {
   const [form, setForm] = useState<FormData>({
     nome: "",
@@ -42,6 +48,7 @@ export default function CadastroForm() {
     whatsapp: "",
     profissao: "",
     nivel: "",
+    objetivo: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -51,7 +58,7 @@ export default function CadastroForm() {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -84,7 +91,7 @@ export default function CadastroForm() {
           CONTA CRIADA COM SUCESSO!
         </h3>
         <p style={{ fontFamily: "var(--font-b)", fontSize: 16, color: "var(--mt)", lineHeight: 1.8, maxWidth: 480, margin: "0 auto" }}>
-          Seus dados de acesso foram enviados para <strong style={{ color: "var(--tx)" }}>{form.email}</strong>.
+          Seus dados de acesso foram enviados para <strong style={{ color: "#ffffff" }}>{form.email}</strong>.
           <br />Verifique sua caixa de entrada (e o spam) e acesse a plataforma.
         </p>
         <p style={{ fontFamily: "var(--font-m)", fontSize: 11, color: "var(--mt)", letterSpacing: ".08em", marginTop: 20 }}>
@@ -96,6 +103,8 @@ export default function CadastroForm() {
 
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+
+      {/* Nome + Email */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
         <div>
           <label style={labelStyle}>Nome completo *</label>
@@ -121,6 +130,7 @@ export default function CadastroForm() {
         </div>
       </div>
 
+      {/* WhatsApp */}
       <div>
         <label style={labelStyle}>WhatsApp</label>
         <input
@@ -132,6 +142,7 @@ export default function CadastroForm() {
         />
       </div>
 
+      {/* Profissão + Nível */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
         <div>
           <label style={labelStyle}>Profissão *</label>
@@ -139,14 +150,14 @@ export default function CadastroForm() {
             required
             value={form.profissao}
             onChange={(e) => set("profissao", e.target.value)}
-            style={{ ...inputStyle, appearance: "none", cursor: "pointer" }}
+            style={{ ...inputStyle, cursor: "pointer" }}
           >
-            <option value="" disabled>Selecione...</option>
-            <option value="empreendedor">Empreendedor(a)</option>
-            <option value="clt">Funcionário(a) CLT</option>
-            <option value="freelancer">Freelancer / Autônomo(a)</option>
-            <option value="estudante">Estudante</option>
-            <option value="outro">Outro</option>
+            <option value="" disabled style={optionStyle}>Selecione...</option>
+            <option value="empreendedor" style={optionStyle}>Empreendedor(a)</option>
+            <option value="clt" style={optionStyle}>Funcionário(a) CLT</option>
+            <option value="freelancer" style={optionStyle}>Freelancer / Autônomo(a)</option>
+            <option value="estudante" style={optionStyle}>Estudante</option>
+            <option value="outro" style={optionStyle}>Outro</option>
           </select>
         </div>
         <div>
@@ -155,14 +166,30 @@ export default function CadastroForm() {
             required
             value={form.nivel}
             onChange={(e) => set("nivel", e.target.value)}
-            style={{ ...inputStyle, appearance: "none", cursor: "pointer" }}
+            style={{ ...inputStyle, cursor: "pointer" }}
           >
-            <option value="" disabled>Selecione...</option>
-            <option value="nunca-vi">Nunca vi automação</option>
-            <option value="ja-tentei">Já tentei mas não consegui</option>
-            <option value="tenho-experiencia">Tenho alguma experiência</option>
+            <option value="" disabled style={optionStyle}>Selecione...</option>
+            <option value="nunca-vi" style={optionStyle}>Nunca vi automação</option>
+            <option value="ja-tentei" style={optionStyle}>Já tentei mas não consegui</option>
+            <option value="tenho-experiencia" style={optionStyle}>Tenho alguma experiência</option>
           </select>
         </div>
+      </div>
+
+      {/* Objetivo */}
+      <div>
+        <label style={labelStyle}>O que você quer automatizar?</label>
+        <textarea
+          rows={3}
+          placeholder="Ex: quero criar um bot de atendimento no WhatsApp para minha loja..."
+          value={form.objetivo}
+          onChange={(e) => set("objetivo", e.target.value)}
+          style={{
+            ...inputStyle,
+            resize: "vertical",
+            lineHeight: 1.6,
+          }}
+        />
       </div>
 
       {error && (
