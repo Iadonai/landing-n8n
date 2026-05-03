@@ -126,7 +126,7 @@ export default function LandingPage() {
                 boxShadow: "0 0 8px var(--cy)",
                 animation: "pulse-cy 2s infinite",
               }} />
-              LANÇAMENTO · ATUALIZADO 2026 · 7 MÓDULOS
+              GRATUITO · ACESSO IMEDIATO · SEM CARTÃO
             </div>
           </div>
 
@@ -174,6 +174,36 @@ export default function LandingPage() {
             <a href="https://pay.kiwify.com.br/Nfsv86H" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding: "16px 32px", justifyContent: "center" }}>
               JÁ TENHO CONTA — COMPRAR CURSO
             </a>
+          </div>
+
+          {/* O que tem no grátis */}
+          <div style={{
+            marginTop: 40,
+            background: "rgba(61,26,138,.15)",
+            border: "1px solid rgba(155,111,255,.3)",
+            padding: "24px 32px",
+            maxWidth: 640,
+            margin: "40px auto 0",
+          }}>
+            <div style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".16em", textTransform: "uppercase", marginBottom: 14 }}>
+              ◈ O que você acessa gratuitamente
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {[
+                "Introdução ao n8n — como funciona e primeiros passos",
+                "Crie seu primeiro agente de chat com IA",
+                "Integre WhatsApp com Z-API do zero",
+                "Acesso à comunidade, fórum e ranking de alunos",
+              ].map((item) => (
+                <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <span style={{ color: "var(--cy)", fontSize: 12, marginTop: 1, flexShrink: 0 }}>✦</span>
+                  <span style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--tx)", lineHeight: 1.5 }}>{item}</span>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".06em", marginTop: 16, textAlign: "center" }}>
+              Sem cartão. Sem compromisso. Acesso imediato ao criar sua conta.
+            </p>
           </div>
 
           {/* Preview — 3 fases do Agente de Voz com MCP */}
@@ -260,7 +290,7 @@ export default function LandingPage() {
             className="max-w-2xl mx-auto"
           >
             {[
-              { v: "7", l: "Módulos" },
+              { v: "Grátis", l: "Para começar" },
               { v: "17+", l: "Ferramentas" },
               { v: "100%", l: "Prático" },
               { v: "Zero", l: "Pré-requisitos" },
@@ -654,12 +684,15 @@ export default function LandingPage() {
               color: "var(--cy)", fontFamily: "var(--font-m)", fontSize: 10,
               padding: "4px 12px", letterSpacing: ".1em", marginBottom: 20,
             }}>
-              ◈ ACESSO COMPLETO
+              ◈ CURSO COMPLETO — 7 MÓDULOS
             </div>
 
             <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: 28, letterSpacing: ".06em", marginBottom: 8 }}>
-              COMECE AGORA MESMO
+              QUER IR ALÉM?
             </h2>
+            <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", marginBottom: 24, lineHeight: 1.7 }}>
+              Gostou do curso gratuito? O curso completo vai muito além — 7 módulos, 17+ ferramentas e projetos reais prontos para usar no seu negócio.
+            </p>
 
             {/* Preço */}
             <div style={{ marginBottom: 24 }}>
@@ -672,7 +705,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--yl)", letterSpacing: ".1em", textAlign: "center", marginTop: 4 }}>
-                ⚡ PREÇO DE LANÇAMENTO — VAGAS LIMITADAS
+                ⚡ PREÇO DE LANÇAMENTO
               </p>
             </div>
 
@@ -739,11 +772,12 @@ export default function LandingPage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
+              { p: "O que tem no curso gratuito?", r: "Você acessa o curso introdutório completo: primeiros passos com n8n, criação de um agente de chat com IA e integração com WhatsApp via Z-API. Tudo sem precisar de cartão de crédito." },
               { p: "Preciso saber programar?", r: "Não. O curso foi desenhado para iniciantes. Você aprende tudo do zero, no ritmo do curso." },
-              { p: "Quanto tempo tenho acesso?", r: "Acesso vitalício. Você também recebe todas as atualizações futuras sem custo adicional." },
-              { p: "O curso funciona em qual sistema operacional?", r: "Windows, Mac e Linux. As ferramentas utilizadas são multiplataforma." },
-              { p: "Tem suporte durante o curso?", r: "Sim. Você terá acesso à comunidade exclusiva para tirar dúvidas com outros alunos e com o professor." },
-              { p: "Recebo certificado ao concluir?", r: "Sim. Ao concluir todos os módulos você recebe o certificado digital de conclusão." },
+              { p: "Qual a diferença do curso gratuito para o completo?", r: "O gratuito cobre os fundamentos e dois projetos práticos. O curso completo tem 7 módulos, 17+ ferramentas, projetos avançados com RAG, DALL·E, MCP e muito mais." },
+              { p: "Quanto tempo tenho acesso?", r: "O curso gratuito é seu para sempre. O curso completo também inclui acesso vitalício e todas as atualizações futuras." },
+              { p: "Tem suporte durante o curso?", r: "Sim. Você já entra na comunidade exclusiva ao criar sua conta grátis — fórum, ranking e suporte do professor." },
+              { p: "Recebo certificado ao concluir?", r: "Sim. Ao concluir todos os módulos do curso completo você recebe o certificado digital de conclusão." },
             ].map((faq) => (
               <div
                 key={faq.p}
