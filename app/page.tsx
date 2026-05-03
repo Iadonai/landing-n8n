@@ -86,9 +86,47 @@ export default function LandingPage() {
             ▶ QUERO ACESSO GRATUITO
           </a>
 
-          <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".08em", marginTop: 16 }}>
-            N8N + Z-API WhatsApp + Google Sheets · Gratuito para sempre
-          </p>
+          {/* Prova social */}
+          <div className="flex justify-center" style={{ marginTop: 28, gap: 32, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{
+                width: 36, height: 36, borderRadius: "50%",
+                background: "rgba(155,111,255,.15)", border: "1px solid rgba(155,111,255,.4)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 16,
+              }}>🎓</div>
+              <div>
+                <div style={{ fontFamily: "var(--font-h)", fontSize: 15, color: "#E8E8F4" }}>3.112</div>
+                <div style={{ fontFamily: "var(--font-m)", fontSize: 9, color: "var(--mt)", letterSpacing: ".08em" }}>ALUNOS NA UDEMY</div>
+              </div>
+            </div>
+            <div style={{ width: 1, background: "var(--bdr)", alignSelf: "stretch" }} />
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{
+                width: 36, height: 36, borderRadius: "50%",
+                background: "rgba(155,111,255,.15)", border: "1px solid rgba(155,111,255,.4)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 16,
+              }}>⭐</div>
+              <div>
+                <div style={{ fontFamily: "var(--font-h)", fontSize: 15, color: "#E8E8F4" }}>7+ anos</div>
+                <div style={{ fontFamily: "var(--font-m)", fontSize: 9, color: "var(--mt)", letterSpacing: ".08em" }}>DE EXPERIÊNCIA EM IA</div>
+              </div>
+            </div>
+            <div style={{ width: 1, background: "var(--bdr)", alignSelf: "stretch" }} />
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{
+                width: 36, height: 36, borderRadius: "50%",
+                background: "rgba(155,111,255,.15)", border: "1px solid rgba(155,111,255,.4)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 16,
+              }}>🏦</div>
+              <div>
+                <div style={{ fontFamily: "var(--font-h)", fontSize: 15, color: "#E8E8F4" }}>Bradesco</div>
+                <div style={{ fontFamily: "var(--font-m)", fontSize: 9, color: "var(--mt)", letterSpacing: ".08em" }}>MACKENZIE · ALLCARE</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -399,16 +437,16 @@ export default function LandingPage() {
                 Engenheiro de Dados · CEO da Iadonai Academy
               </p>
               <p style={{ fontFamily: "var(--font-b)", fontSize: 15, color: "var(--mt)", lineHeight: 1.8, marginBottom: 20 }}>
-                Engenheiro de Dados formado pelo <strong style={{ color: "var(--tx)" }}>Mackenzie</strong> com pós-graduação em Ciência de Dados. Mais de <strong style={{ color: "var(--tx)" }}>7 anos de experiência</strong> em projetos reais de automação, IA e dados em empresas como <strong style={{ color: "var(--tx)" }}>Bradesco e Allcare Gestora de Saúde</strong>.
+                Engenheiro de Dados formado pelo <strong style={{ color: "var(--tx)" }}>Mackenzie</strong>, especialista em automação e dados com mais de <strong style={{ color: "var(--tx)" }}>6 anos de experiência</strong> em projetos reais em empresas como <strong style={{ color: "var(--tx)" }}>Bradesco e Allcare Gestora de Saúde</strong>. Fundador da <strong style={{ color: "var(--tx)" }}>Data Analytcs Treinamentos</strong>.
               </p>
               <p style={{ fontFamily: "var(--font-b)", fontSize: 15, color: "var(--mt)", lineHeight: 1.8, marginBottom: 32 }}>
-                No Bradesco, liderou o <strong style={{ color: "var(--tx)" }}>sistema antifraude do PIX</strong> e um projeto que economizou <strong style={{ color: "var(--cy)" }}>R$ 4 milhões anuais</strong>. Hoje ensina pessoas comuns a criarem automações e agentes de IA sem precisar saber programar.
+                No Bradesco, liderou o <strong style={{ color: "var(--tx)" }}>sistema antifraude do PIX</strong> e um projeto que economizou <strong style={{ color: "var(--cy)" }}>R$ 4 milhões anuais</strong>. Na Udemy, já formou mais de <strong style={{ color: "var(--cy)" }}>3.112 alunos</strong> com <strong style={{ color: "var(--tx)" }}>561 avaliações</strong> — tudo com foco prático e linguagem acessível.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
                 {[
-                  { v: "7+", l: "Anos de experiência" },
-                  { v: "R$4M", l: "Economizados em projetos" },
-                  { v: "2", l: "Empresas fundadas" },
+                  { v: "3.112", l: "Alunos na Udemy" },
+                  { v: "561", l: "Avaliações" },
+                  { v: "R$4M", l: "Economizados no Bradesco" },
                   { v: "Mackenzie", l: "Ciência de Dados" },
                 ].map((s) => (
                   <div key={s.l} style={{ background: "var(--s2)", border: "1px solid var(--bdr)", borderTop: "2px solid var(--b2)", padding: "14px 12px", textAlign: "center" }}>
@@ -417,10 +455,16 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
-              <a href="https://www.linkedin.com/in/rafael-de-oliveira-borges-engenhariadedados/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 24, fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".1em", textDecoration: "none", border: "1px solid var(--bdr)", padding: "8px 16px" }}>
-                <span style={{ color: "#0A66C2", fontSize: 14 }}>in</span>
-                VER PERFIL NO LINKEDIN
-              </a>
+              <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
+                <a href="https://www.linkedin.com/in/rafael-de-oliveira-borges-engenhariadedados/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".1em", textDecoration: "none", border: "1px solid var(--bdr)", padding: "8px 16px" }}>
+                  <span style={{ color: "#0A66C2", fontSize: 14 }}>in</span>
+                  LINKEDIN
+                </a>
+                <a href="https://www.udemy.com/user/rafael-de-oliveira-borges/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", letterSpacing: ".1em", textDecoration: "none", border: "1px solid var(--bdr)", padding: "8px 16px" }}>
+                  <span style={{ color: "#A435F0", fontSize: 14 }}>U</span>
+                  UDEMY — 3.112 ALUNOS
+                </a>
+              </div>
             </div>
           </div>
         </div>
