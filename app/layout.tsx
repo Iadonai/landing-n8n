@@ -36,20 +36,6 @@ export default function RootLayout({
       className={`${orbitron.variable} ${rajdhani.variable} ${shareTechMono.variable} h-full`}
     >
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-MZJE9M7HBX"
-        strategy="afterInteractive"
-      />
-      <Script
-        id="ga4-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-MZJE9M7HBX');`,
-        }}
-      />
-      <Script
         id="gtm-script"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
