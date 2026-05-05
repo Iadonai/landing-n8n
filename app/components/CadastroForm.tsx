@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type FormData = {
   nome: string;
@@ -9,6 +9,10 @@ type FormData = {
   profissao: string;
   nivel: string;
   objetivo: string;
+  fbclid: string;
+  fbc: string;
+  fbp: string;
+  event_id: string;
 };
 
 const N8N_WEBHOOK = "https://n8n.iadonaiacademy.com.br/webhook/cadastro-isca";
@@ -41,6 +45,11 @@ const optionStyle: React.CSSProperties = {
   color: "#E8E8F4",
 };
 
+function getCookie(name: string): string {
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+  return match ? match[2] : "";
+}
+
 export default function CadastroForm() {
   const [form, setForm] = useState<FormData>({
     nome: "",
@@ -49,10 +58,24 @@ export default function CadastroForm() {
     profissao: "",
     nivel: "",
     objetivo: "",
+    fbclid: "",
+    fbc: "",
+    fbp: "",
+    event_id: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const fbclid = params.get("fbclid") || "";
+    const now = Math.floor(Date.now() / 1000);
+    const fbc = getCookie("_fbc") || (fbclid ? `fb.1.${now}.${fbclid}` : "");
+    const fbp = getCookie("_fbp");
+    const event_id = `lead_${now}_${Math.random().toString(36).slice(2, 9)}`;
+    setForm((prev) => ({ ...prev, fbclid, fbc, fbp, event_id }));
+  }, []);
 
   function set(field: keyof FormData, value: string) {
     setForm((prev) => ({ ...prev, [field]: value }));
