@@ -265,156 +265,164 @@ export default function LandingPage() {
       </section>
 
       {/* ── O QUE VOCÊ VAI APRENDER ──────────────────────────────────────── */}
-      <section style={{ padding: "80px 24px", background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 52 }}>
-            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
-              Conteúdo do curso
-            </p>
-            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
-              O QUE VOCÊ VAI APRENDER
-            </h2>
-          </div>
+      <section style={{ padding: "80px 0", background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", paddingLeft: 24, paddingRight: 24 }}>
+          <Reveal>
+            <div style={{ textAlign: "center", marginBottom: 52 }}>
+              <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
+                Conteúdo do curso
+              </p>
+              <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
+                4 MÓDULOS. 4 HABILIDADES. SEM ENROLAÇÃO.
+              </h2>
+            </div>
+          </Reveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
-            {[
-              {
-                icon: "⚡",
-                titulo: "80/20 Fundamentos N8N",
-                desc: "O que você realmente precisa saber para criar automações com N8N. Sem enrolação — direto ao que funciona.",
-                cor: "var(--cy)",
-              },
-              {
-                icon: "📊",
-                titulo: "Integrações com Google Sheets",
-                desc: "Conecte qualquer fluxo ao Google Sheets. Registre dados, leia planilhas e use como banco de dados das suas automações.",
-                cor: "var(--cy)",
-              },
-              {
-                icon: "🤖",
-                titulo: "Agentes de IA",
-                desc: "Crie agentes inteligentes com memória, RAG e ferramentas. Use modelos como Groq (gratuito), GPT, Llama e Gemini.",
-                cor: "#3ECF8E",
-              },
-              {
-                icon: "💬",
-                titulo: "Webhooks e WhatsApp (Z-API)",
-                desc: "Integre o WhatsApp nas suas automações via Z-API. Receba e envie mensagens, capture leads e automatize respostas 24/7.",
-                cor: "#3ECF8E",
-              },
-            ].map((m) => (
-              <div key={m.titulo} className="punk-card" style={{ padding: "28px 24px", display: "flex", gap: 20, alignItems: "flex-start" }}>
-                <div style={{
-                  width: 48, height: 48, flexShrink: 0,
-                  background: `${m.cor}14`, border: `1px solid ${m.cor}40`,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 22,
-                }}>
-                  {m.icon}
-                </div>
-                <div>
-                  <h3 style={{ fontFamily: "var(--font-h)", fontSize: 14, letterSpacing: ".06em", color: "#fff", marginBottom: 8 }}>
+          <Reveal delay={150}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
+              {[
+                { num: "01", titulo: "Fundamentos N8N", desc: "A maioria das pessoas trava aqui e desiste. Você não vai. O que importa, direto ao ponto.", detail: "Nós · Workflows · Triggers" },
+                { num: "02", titulo: "Google Sheets", desc: "Esqueça banco de dados caro. Planilha é o CRM do povo — e você vai usar como profissional.", detail: "Read · Append · Update" },
+                { num: "03", titulo: "Agentes de IA", desc: "Não é chatbot burro. É um agente com memória que consulta seus dados e age de forma autônoma.", detail: "LLM · Memória · RAG" },
+                { num: "04", titulo: "WhatsApp", desc: "O canal com 98% de taxa de abertura. Você vai integrar hoje — sem pagar fortuna.", detail: "Z-API · Webhooks · Bot" },
+              ].map((m, i) => (
+                <div
+                  key={i}
+                  style={{
+                    borderRight: i < 3 ? "1px solid var(--bdr)" : "none",
+                    borderLeft: i === 0 ? "1px solid var(--bdr)" : "none",
+                    padding: "48px 32px",
+                    display: "flex", flexDirection: "column", textAlign: "center",
+                    transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
+                    cursor: "default",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = "translateY(-12px)";
+                    e.currentTarget.style.background = "rgba(155,111,255,.04)";
+                    e.currentTarget.style.boxShadow = "0 20px 60px rgba(155,111,255,.08)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <div style={{ fontFamily: "var(--font-h)", fontSize: "5rem", color: "var(--tx)", lineHeight: 1, marginBottom: "2rem", letterSpacing: "-.03em", opacity: .9 }}>
+                    {m.num}
+                  </div>
+                  <div style={{ width: 24, height: 1, background: "var(--cy)", opacity: .5, margin: "0 auto 2rem" }} />
+                  <h3 style={{ fontFamily: "var(--font-h)", fontSize: "1.1rem", letterSpacing: ".06em", marginBottom: "1rem", color: "var(--tx)" }}>
                     {m.titulo.toUpperCase()}
                   </h3>
-                  <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.7 }}>
+                  <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.7, marginBottom: "2rem", flexGrow: 1 }}>
                     {m.desc}
                   </p>
+                  <div style={{ borderTop: "1px solid var(--bdr)", paddingTop: "1.25rem", marginTop: "auto" }}>
+                    <span style={{ fontFamily: "var(--font-m)", fontSize: 9, color: "var(--cy)", letterSpacing: ".12em" }}>
+                      {m.detail}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── COMO FUNCIONA ────────────────────────────────────────────────── */}
       <section id="como-funciona" style={{ padding: "80px 24px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 52 }}>
-            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
-              Simples assim
-            </p>
-            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
-              COMO FUNCIONA
-            </h2>
-          </div>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ textAlign: "center", marginBottom: 52 }}>
+              <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
+                Simples assim
+              </p>
+              <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
+                PREENCHE, RECEBE, CONSTRÓI.
+              </h2>
+            </div>
+          </Reveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
-            {[
-              {
-                num: "01",
-                titulo: "Preencha o formulário",
-                desc: "Nome, email e mais 2 perguntas rápidas. Menos de 1 minuto. Nada de cartão de crédito.",
-                cor: "#9B6FFF",
-              },
-              {
-                num: "02",
-                titulo: "Receba seu acesso por email",
-                desc: "Seu login e senha chegam na hora. Clique no link, entre na plataforma e já acessa o curso.",
-                cor: "#CC88FF",
-              },
-              {
-                num: "03",
-                titulo: "Construa seus agentes",
-                desc: "Siga as aulas e termine com 2 agentes de IA funcionando. Um via link, outro no WhatsApp.",
-                cor: "#3ECF8E",
-              },
-            ].map((step, i) => (
-              <div key={step.num} style={{ position: "relative" }}>
-                {i < 2 && (
-                  <div style={{ position: "absolute", top: 32, right: -2, zIndex: 2, fontFamily: "var(--font-m)", fontSize: 20, color: "var(--cy)", opacity: .4 }}>→</div>
-                )}
-                <div
-                  style={{ background: "var(--s2)", border: "1px solid var(--bdr)", borderTop: `3px solid ${step.cor}`, padding: "28px 24px", height: "100%", transition: "transform .3s, box-shadow .3s" }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-8px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,.3)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
-                >
-                  <div style={{
-                    display: "inline-flex", alignItems: "center", justifyContent: "center",
-                    width: 36, height: 36,
-                    background: `${step.cor}20`, border: `1px solid ${step.cor}`,
-                    fontFamily: "var(--font-h)", fontSize: 12, color: step.cor,
-                    marginBottom: 16,
-                  }}>
-                    {step.num}
+          <Reveal delay={150}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr", gap: 0, alignItems: "stretch" }}>
+              {[
+                { num: "01", titulo: "Preencha o formulário", desc: "Nome, email e mais 2 perguntas rápidas. Menos de 1 minuto. Nada de cartão de crédito." },
+                { num: "02", titulo: "Receba seu acesso por email", desc: "Seu login e senha chegam na hora. Clique no link, entre na plataforma e já acessa o curso." },
+                { num: "03", titulo: "Construa seus agentes", desc: "Siga as aulas e termine com 2 agentes de IA funcionando. Um via link, outro no WhatsApp." },
+              ].map((step, i) => (
+                <>
+                  <div
+                    key={`step-${i}`}
+                    style={{ border: "1px solid var(--bdr)", padding: "48px 32px", textAlign: "center", display: "flex", flexDirection: "column", background: "var(--s2)", transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)", cursor: "default" }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-14px) scale(1.02)"; e.currentTarget.style.borderColor = "var(--b3)"; e.currentTarget.style.boxShadow = "0 24px 64px rgba(155,111,255,.15)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0) scale(1)"; e.currentTarget.style.borderColor = "var(--bdr)"; e.currentTarget.style.boxShadow = "none"; }}
+                  >
+                    <div style={{ fontFamily: "var(--font-h)", fontSize: "4rem", color: "var(--cy)", lineHeight: 1, marginBottom: "1.5rem", letterSpacing: "-.03em" }}>
+                      {step.num}
+                    </div>
+                    <div style={{ width: 24, height: 1, background: "var(--cy)", opacity: .5, margin: "0 auto 1.5rem" }} />
+                    <h3 style={{ fontFamily: "var(--font-h)", fontSize: "1rem", letterSpacing: ".06em", color: "var(--tx)", marginBottom: "1rem" }}>
+                      {step.titulo.toUpperCase()}
+                    </h3>
+                    <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.7 }}>
+                      {step.desc}
+                    </p>
                   </div>
-                  <h3 style={{ fontFamily: "var(--font-h)", fontSize: 13, letterSpacing: ".06em", color: "#fff", marginBottom: 10 }}>
-                    {step.titulo.toUpperCase()}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.7 }}>
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+                  {i < 2 && (
+                    <div key={`arrow-${i}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0 16px", color: "var(--cy)", opacity: .4, fontSize: "1.5rem" }}>
+                      →
+                    </div>
+                  )}
+                </>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── PARA QUEM É ──────────────────────────────────────────────────── */}
       <section style={{ padding: "80px 24px", background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
-              Público-alvo
-            </p>
-            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
-              ESSE CURSO É PARA VOCÊ SE...
-            </h2>
-          </div>
-          <div style={{ display: "grid", gap: 10 }}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ textAlign: "center", marginBottom: 56 }}>
+              <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
+                Público-alvo
+              </p>
+              <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em", marginBottom: 20 }}>
+                VOCÊ SE ENCAIXA AQUI SE ALGUM<br />DESSES CENÁRIOS TE INCOMODA
+              </h2>
+              <div style={{ width: 48, height: 2, background: "linear-gradient(90deg, var(--b2), var(--cy))", margin: "0 auto" }} />
+            </div>
+          </Reveal>
+
+          <div>
             {[
-              { icon: "🌱", label: "Você quer aprender automações e IA mas não sabe por onde começar" },
-              { icon: "💼", label: "Você é profissional ou empreendedor e quer automatizar processos do seu negócio" },
-              { icon: "🤖", label: "Você quer criar chatbots e agentes de IA para usar ou vender como serviço" },
-              { icon: "🔌", label: "Você já ouviu falar de n8n mas nunca conseguiu dar o primeiro passo" },
-              { icon: "📱", label: "Você quer um bot de WhatsApp inteligente sem pagar caro por isso" },
-            ].map((p) => (
-              <div key={p.label} className="punk-card" style={{ display: "flex", alignItems: "center", gap: 16, padding: "18px 22px" }}>
-                <span style={{ fontSize: 24, flexShrink: 0 }}>{p.icon}</span>
-                <span style={{ fontFamily: "var(--font-b)", fontSize: 16, color: "var(--tx)" }}>{p.label}</span>
-              </div>
+              "Você ainda responde mensagem de cliente manualmente — e tá cansado disso",
+              "Você já tentou aprender automação mas travou no técnico e desistiu",
+              "Você paga caro em ferramentas ou freelancers para fazer coisas que poderia automatizar",
+              "Você vê todo mundo falando de agentes de IA mas não sabe por onde começar",
+              "Você quer um bot no WhatsApp mas as plataformas prontas cobram demais pelo que entregam",
+            ].map((text, i) => (
+              <Reveal key={i} delay={i * 90}>
+                <div
+                  style={{ borderBottom: "1px solid var(--bdr)", padding: "24px 0", display: "flex", alignItems: "flex-start", gap: 20, transition: "padding-left .2s, border-color .2s" }}
+                  onMouseEnter={e => { e.currentTarget.style.paddingLeft = "12px"; e.currentTarget.style.borderBottomColor = "var(--b3)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.paddingLeft = "0"; e.currentTarget.style.borderBottomColor = "var(--bdr)"; }}
+                >
+                  <span style={{ color: "var(--cy)", fontSize: 10, marginTop: 7, flexShrink: 0 }}>◆</span>
+                  <span style={{ fontFamily: "var(--font-b)", fontSize: 17, color: "var(--tx)", lineHeight: 1.6 }}>{text}</span>
+                </div>
+              </Reveal>
             ))}
           </div>
+
+          <Reveal delay={500}>
+            <div style={{ textAlign: "center", marginTop: 48 }}>
+              <a href="#cadastro" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px" }}>
+                ▶ ESSE SOU EU — QUERO MEU ACESSO GRÁTIS
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -491,28 +499,51 @@ export default function LandingPage() {
       {/* ── DEPOIMENTOS ──────────────────────────────────────────────────── */}
       <section style={{ background: "var(--s1)", borderTop: "1px solid var(--bdr)", borderBottom: "1px solid var(--bdr)", padding: "80px 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
-              Resultados reais
-            </p>
-            <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
-              O QUE NOSSOS ALUNOS ESTÃO FALANDO
-            </h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
-            {["depoimento-01", "depoimento-02", "depoimento-03"].map((dep) => (
-              <div
-                key={dep}
-                onClick={() => setSelectedImage(`/projetos/${dep}.PNG`)}
-                style={{ background: "#fff", border: "1px solid var(--bdr)", borderTop: "2px solid var(--cy)", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,.3)", cursor: "zoom-in", transition: "transform .3s, box-shadow .3s" }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.03)"; e.currentTarget.style.boxShadow = "0 8px 40px rgba(155,111,255,.2)"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,.3)"; }}
-              >
-                <Image src={`/projetos/${dep}.PNG`} alt="Depoimento de aluno" width={600} height={200} style={{ display: "block", width: "100%", height: "auto" }} unoptimized />
-              </div>
+          <Reveal>
+            <div style={{ textAlign: "center", marginBottom: 52 }}>
+              <p style={{ fontFamily: "var(--font-m)", fontSize: 10, color: "var(--cy)", letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 10 }}>
+                Resultados reais
+              </p>
+              <h2 className="silver-lg" style={{ fontFamily: "var(--font-h)", fontSize: "clamp(22px, 3vw, 38px)", letterSpacing: ".06em" }}>
+                O QUE NOSSOS ALUNOS ESTÃO FALANDO
+              </h2>
+            </div>
+          </Reveal>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2.5rem" }}>
+            {["depoimento-01", "depoimento-02", "depoimento-03"].map((dep, i) => (
+              <Reveal key={dep} delay={i * 150}>
+                <div
+                  onClick={() => setSelectedImage(`/projetos/${dep}.PNG`)}
+                  style={{ overflow: "hidden", border: "1px solid var(--bdr)", cursor: "zoom-in", background: "rgba(255,255,255,.97)", transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)" }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.borderColor = "rgba(91,155,213,.4)";
+                    e.currentTarget.style.boxShadow = "0 0 30px rgba(91,155,213,.25)";
+                    const img = e.currentTarget.querySelector("img");
+                    if (img) img.style.transform = "scale(1.1)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.borderColor = "var(--bdr)";
+                    e.currentTarget.style.boxShadow = "none";
+                    const img = e.currentTarget.querySelector("img");
+                    if (img) img.style.transform = "scale(1)";
+                  }}
+                >
+                  <Image
+                    src={`/projetos/${dep}.PNG`}
+                    alt="Depoimento de aluno"
+                    width={600}
+                    height={250}
+                    style={{ display: "block", width: "100%", height: "auto", transition: "transform 0.7s cubic-bezier(0.16,1,0.3,1)" }}
+                    unoptimized
+                  />
+                </div>
+              </Reveal>
             ))}
           </div>
-          <p style={{ textAlign: "center", fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", marginTop: 12, letterSpacing: ".06em" }}>Clique para ampliar</p>
+          <p style={{ textAlign: "center", fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", marginTop: 16, letterSpacing: ".06em" }}>Clique para ampliar</p>
         </div>
       </section>
 
