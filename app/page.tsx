@@ -1,8 +1,15 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import TickerTools from "./components/TickerTools";
 import CadastroForm from "./components/CadastroForm";
+import Reveal from "./components/Reveal";
+import FaqAccordion from "./components/FaqAccordion";
 
 export default function LandingPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div style={{ background: "var(--bg)", color: "var(--tx)" }} className="min-h-screen overflow-x-hidden">
       <div className="scanline" />
@@ -45,6 +52,7 @@ export default function LandingPage() {
         <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", textAlign: "center" }}>
 
           {/* Badge */}
+          <Reveal>
           <div className="flex justify-center mb-6">
             <div style={{
               display: "inline-flex", alignItems: "center", gap: 8,
@@ -63,7 +71,9 @@ export default function LandingPage() {
               100% GRATUITO · SEM CARTÃO · ACESSO IMEDIATO
             </div>
           </div>
+          </Reveal>
 
+          <Reveal delay={150}>
           {/* Headline */}
           <h1
             className="silver-lg"
@@ -72,7 +82,9 @@ export default function LandingPage() {
             CRIE SEU PRIMEIRO<br />
             <span className="cy-text">AGENTE DE IA COM N8N</span>
           </h1>
+          </Reveal>
 
+          <Reveal delay={280}>
           <p style={{
             fontFamily: "var(--font-b)", fontSize: "clamp(15px, 1.8vw, 19px)",
             color: "var(--mt)", maxWidth: 620, margin: "20px auto 36px", lineHeight: 1.8,
@@ -81,12 +93,16 @@ export default function LandingPage() {
             um agente de IA via link e outro integrado ao WhatsApp.
             Sem programação. Resultado em minutos.
           </p>
+          </Reveal>
 
+          <Reveal delay={400}>
           <a href="#cadastro" className="btn-punk" style={{ fontSize: 13, padding: "18px 48px" }}>
             ▶ QUERO ACESSO GRATUITO
           </a>
+          </Reveal>
 
           {/* Prova social */}
+          <Reveal delay={550}>
           <div className="flex justify-center" style={{ marginTop: 28, gap: 32, flexWrap: "wrap" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{
@@ -127,6 +143,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -150,12 +167,12 @@ export default function LandingPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
 
             {/* Case 1 */}
-            <div style={{
-              background: "var(--s2)",
-              border: "1px solid var(--bdr)",
-              borderTop: "3px solid var(--cy)",
-              overflow: "hidden",
-            }}>
+            <Reveal delay={100}>
+            <div
+              style={{ background: "var(--s2)", border: "1px solid var(--bdr)", borderTop: "3px solid var(--cy)", overflow: "hidden", transition: "transform .3s, box-shadow .3s" }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(155,111,255,.12)"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
+            >
               <Image
                 src="/projetos/case-01.PNG"
                 alt="Agente de IA via link — fluxo N8N"
@@ -190,14 +207,15 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+            </Reveal>
 
             {/* Case 2 */}
-            <div style={{
-              background: "var(--s2)",
-              border: "1px solid var(--bdr)",
-              borderTop: "3px solid #3ECF8E",
-              overflow: "hidden",
-            }}>
+            <Reveal delay={250}>
+            <div
+              style={{ background: "var(--s2)", border: "1px solid var(--bdr)", borderTop: "3px solid #3ECF8E", overflow: "hidden", transition: "transform .3s, box-shadow .3s" }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(62,207,142,.1)"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
+            >
               <Image
                 src="/projetos/case-02.PNG"
                 alt="Agente de IA no WhatsApp — fluxo N8N com Z-API"
@@ -232,14 +250,17 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+            </Reveal>
 
           </div>
 
+          <Reveal delay={200}>
           <div style={{ textAlign: "center", marginTop: 40 }}>
             <a href="#cadastro" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px" }}>
               ▶ QUERO CONSTRUIR ESSES PROJETOS — CRIAR CONTA GRÁTIS
             </a>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -340,16 +361,13 @@ export default function LandingPage() {
             ].map((step, i) => (
               <div key={step.num} style={{ position: "relative" }}>
                 {i < 2 && (
-                  <div style={{
-                    position: "absolute", top: 32, right: -2, zIndex: 2,
-                    fontFamily: "var(--font-m)", fontSize: 20, color: "var(--cy)", opacity: .4,
-                  }}>→</div>
+                  <div style={{ position: "absolute", top: 32, right: -2, zIndex: 2, fontFamily: "var(--font-m)", fontSize: 20, color: "var(--cy)", opacity: .4 }}>→</div>
                 )}
-                <div style={{
-                  background: "var(--s2)", border: "1px solid var(--bdr)",
-                  borderTop: `3px solid ${step.cor}`,
-                  padding: "28px 24px", height: "100%",
-                }}>
+                <div
+                  style={{ background: "var(--s2)", border: "1px solid var(--bdr)", borderTop: `3px solid ${step.cor}`, padding: "28px 24px", height: "100%", transition: "transform .3s, box-shadow .3s" }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-8px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,.3)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
+                >
                   <div style={{
                     display: "inline-flex", alignItems: "center", justifyContent: "center",
                     width: 36, height: 36,
@@ -483,11 +501,18 @@ export default function LandingPage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
             {["depoimento-01", "depoimento-02", "depoimento-03"].map((dep) => (
-              <div key={dep} style={{ background: "#fff", border: "1px solid var(--bdr)", borderTop: "2px solid var(--cy)", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,.3)" }}>
+              <div
+                key={dep}
+                onClick={() => setSelectedImage(`/projetos/${dep}.PNG`)}
+                style={{ background: "#fff", border: "1px solid var(--bdr)", borderTop: "2px solid var(--cy)", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,.3)", cursor: "zoom-in", transition: "transform .3s, box-shadow .3s" }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.03)"; e.currentTarget.style.boxShadow = "0 8px 40px rgba(155,111,255,.2)"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,.3)"; }}
+              >
                 <Image src={`/projetos/${dep}.PNG`} alt="Depoimento de aluno" width={600} height={200} style={{ display: "block", width: "100%", height: "auto" }} unoptimized />
               </div>
             ))}
           </div>
+          <p style={{ textAlign: "center", fontFamily: "var(--font-m)", fontSize: 10, color: "var(--mt)", marginTop: 12, letterSpacing: ".06em" }}>Clique para ampliar</p>
         </div>
       </section>
 
@@ -550,21 +575,7 @@ export default function LandingPage() {
               PERGUNTAS FREQUENTES
             </h2>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {[
-              { p: "O curso é realmente gratuito?", r: "Sim. O curso introdutório com n8n, agente de IA e integração WhatsApp via Z-API é 100% gratuito. Sem cartão, sem período de teste." },
-              { p: "Como funciona o acesso?", r: "Você preenche o formulário acima e recebe um email com seu login e senha em minutos. Acessa a plataforma e já começa o curso." },
-              { p: "Preciso saber programar?", r: "Não. O curso foi desenhado para quem nunca programou. Do zero, no seu ritmo, com exemplos práticos." },
-              { p: "O que eu preciso ter instalado?", r: "Só um computador com acesso à internet. N8N tem versão cloud gratuita — sem necessidade de instalar nada." },
-              { p: "O curso funciona em qual sistema operacional?", r: "Windows, Mac e Linux. As ferramentas utilizadas são todas online e multiplataforma." },
-              { p: "Vou realmente conseguir criar os 2 agentes?", r: "Sim. O curso é construído passo a passo. Se você seguir as aulas, ao final terá um agente via link e um no WhatsApp funcionando." },
-            ].map((faq) => (
-              <div key={faq.p} className="punk-card" style={{ padding: "20px 22px", borderLeft: "2px solid var(--b1)" }}>
-                <h3 style={{ fontFamily: "var(--font-h)", fontSize: 13, letterSpacing: ".06em", marginBottom: 8 }} className="silver">{faq.p}</h3>
-                <p style={{ fontFamily: "var(--font-b)", fontSize: 14, color: "var(--mt)", lineHeight: 1.7 }}>{faq.r}</p>
-              </div>
-            ))}
-          </div>
+          <FaqAccordion />
 
           <div style={{ textAlign: "center", marginTop: 48 }}>
             <a href="#cadastro" className="btn-punk" style={{ fontSize: 12, padding: "16px 40px" }}>
@@ -583,6 +594,24 @@ export default function LandingPage() {
           </span>
         </div>
       </footer>
+
+      {/* ── LIGHTBOX ── */}
+      {selectedImage && (
+        <div
+          onClick={() => setSelectedImage(null)}
+          style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 200, background: "rgba(6,4,15,.95)", backdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "zoom-out", padding: "2rem", animation: "glow-in .3s ease" }}
+        >
+          <div style={{ position: "relative", maxWidth: "90vw", maxHeight: "90vh" }} onClick={e => e.stopPropagation()}>
+            <Image src={selectedImage} alt="Depoimento ampliado" width={1200} height={800} style={{ width: "100%", height: "auto", display: "block", border: "1px solid var(--b2)" }} unoptimized />
+            <button
+              onClick={() => setSelectedImage(null)}
+              style={{ position: "absolute", top: -32, right: 0, color: "var(--mt)", background: "none", border: "none", fontSize: 11, cursor: "pointer", fontFamily: "var(--font-m)", letterSpacing: ".1em" }}
+            >
+              ✕ FECHAR
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
