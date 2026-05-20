@@ -219,3 +219,13 @@ select {
   .grid-instrutor { grid-template-columns: 1fr; }
   .grid-stats-4   { grid-template-columns: repeat(2, 1fr); }
 }
+
+@media (max-width: 520px) {
+  .grid-4col { grid-template-columns: 1fr; }
+  .grid-4col > div {
+    border-left: 1px solid var(--bdr) !important;
+    border-right: 1px solid var(--bdr) !important;
+    border-bottom: 1px solid var(--bdr) !important;
+    padding: 32px 20px !important;
+  }
+}
