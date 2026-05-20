@@ -164,7 +164,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <div className="grid-2col">
 
             {/* Case 1 */}
             <Reveal delay={100}>
@@ -279,7 +279,7 @@ export default function LandingPage() {
           </Reveal>
 
           <Reveal delay={150}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
+            <div className="grid-4col">
               {[
                 { num: "01", titulo: "Fundamentos N8N", desc: "A maioria das pessoas trava aqui e desiste. Você não vai. O que importa, direto ao ponto.", detail: "Nós · Workflows · Triggers" },
                 { num: "02", titulo: "Google Sheets", desc: "Esqueça banco de dados caro. Planilha é o CRM do povo — e você vai usar como profissional.", detail: "Read · Append · Update" },
@@ -344,7 +344,7 @@ export default function LandingPage() {
           </Reveal>
 
           <Reveal delay={150}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr", gap: 0, alignItems: "stretch" }}>
+            <div className="grid-steps">
               {[
                 { num: "01", titulo: "Preencha o formulário", desc: "Nome, email e mais 2 perguntas rápidas. Menos de 1 minuto. Nada de cartão de crédito." },
                 { num: "02", titulo: "Receba seu acesso por email", desc: "Seu login e senha chegam na hora. Clique no link, entre na plataforma e já acessa o curso." },
@@ -369,7 +369,7 @@ export default function LandingPage() {
                     </p>
                   </div>
                   {i < 2 && (
-                    <div key={`arrow-${i}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0 16px", color: "var(--cy)", opacity: .4, fontSize: "1.5rem" }}>
+                    <div key={`arrow-${i}`} className="step-arrow">
                       →
                     </div>
                   )}
@@ -438,7 +438,7 @@ export default function LandingPage() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "320px 1fr", gap: 48, alignItems: "start" }}>
+          <div className="grid-instrutor">
             <div style={{ position: "relative" }}>
               <div style={{
                 width: "100%", aspectRatio: "3/4",
@@ -468,7 +468,7 @@ export default function LandingPage() {
               <p style={{ fontFamily: "var(--font-b)", fontSize: 15, color: "var(--mt)", lineHeight: 1.8, marginBottom: 32 }}>
                 No Bradesco, liderou o <strong style={{ color: "var(--tx)" }}>sistema antifraude do PIX</strong> e um projeto que economizou <strong style={{ color: "var(--cy)" }}>R$ 4 milhões anuais</strong>. Na Udemy, já formou mais de <strong style={{ color: "var(--cy)" }}>3.112 alunos</strong> com <strong style={{ color: "var(--tx)" }}>561 avaliações</strong> — tudo com foco prático e linguagem acessível.
               </p>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
+              <div className="grid-stats-4">
                 {[
                   { v: "3.112", l: "Alunos na Udemy" },
                   { v: "561", l: "Avaliações" },
